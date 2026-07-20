@@ -522,30 +522,69 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.02;letter-spacing:-.02em;
   .compare{grid-template-columns:1fr;gap:16px;max-width:460px}
   .col-old{border-radius:var(--r-lg)}
   .compare-vs{margin:-6px auto;transform:none}
-  .fsteps{grid-template-columns:1fr;gap:26px;max-width:420px;margin-inline:auto}
-  .fstep-arrow{transform:rotate(90deg)}
+  .fsteps{grid-template-columns:1fr;gap:32px;max-width:420px;margin-inline:auto}
+  .fstep-arrow{display:none}
 }
 @media (max-width:620px){
-  .section{padding:70px 0}
-  .cards-4{grid-template-columns:1fr}
-  .why-list{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
+  /* espace pour la barre CTA fixe du bas */
+  body{padding-bottom:74px}
+
+  /* top bar sur UNE ligne, compacte */
+  .topbar{font-size:.76rem;padding:7px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* header compact pour libérer le haut de l'écran */
+  .header-inner{height:58px}
+  .brand-mark{width:34px;height:34px}
+  .brand-mark svg{width:32px;height:32px}
+  .brand-text strong{font-size:1rem}
+  .brand-text em{font-size:.66rem}
+  .header-cta{display:none}
+
+  /* HERO resserré : titre + CTA le plus haut possible */
+  .hero{padding-top:20px}
+  .hero-grid{padding-block:16px 34px;gap:30px}
+  .pill{margin-bottom:14px;font-size:.78rem;padding:7px 13px}
+  .hero h1{font-size:clamp(2.75rem,12vw,3.4rem)}
+  .hero-sub{margin-top:14px;font-size:1.02rem;line-height:1.5}
+  .hero-checks{margin-top:16px;gap:8px 14px}
+  .hero-checks li{font-size:.94rem}
+  .hero-actions{margin-top:22px;flex-direction:column;align-items:stretch;gap:12px}
+  .hero-actions .btn{width:100%}
+  .hero-response{text-align:center;font-size:.85rem}
+  .trust-row{margin-top:20px;justify-content:center}
+
+  /* sections plus courtes = scroll plus rapide */
+  .section{padding:54px 0}
+  .section-head{margin-bottom:38px}
+  .section-head h2{font-size:clamp(1.7rem,7.5vw,2.3rem)}
+
+  .stats-grid{grid-template-columns:1fr 1fr;gap:30px 20px}
   .stat:nth-child(2)::after{display:none}
   .stat::after{display:none}
-  .header-cta{display:none}
-  .hero{padding-top:36px}
-  .hero-actions{flex-direction:column;align-items:stretch}
-  .hero-actions .btn{width:100%}
-  .hero-response{text-align:center}
-  .mobile-bar{display:flex}
-  .wa-float{bottom:86px}
-  .big-cta-inner{padding:52px 20px}
+
+  .big-cta{padding:24px 0 70px}
+  .big-cta-inner{padding:46px 20px}
+
   .license-body{flex-direction:column;align-items:flex-start;gap:16px}
   .license-list{border-left:none;padding-left:0;border-top:2px dashed var(--line-strong);padding-top:14px;width:100%}
   .stack-cta{flex-direction:column;align-items:stretch;text-align:center}
   .stack-price{align-items:center}
   .stack-cta .btn{width:100%}
-  .topbar{font-size:.8rem}
+
+  /* mobile : la barre fixe du bas EST le CTA permanent → on retire le bouton flottant redondant */
+  .wa-float{display:none}
+  .mobile-bar{display:flex}
+  .mobile-bar .btn{flex:1;max-width:none;padding:15px 20px;font-size:1.02rem}
+  .mobile-bar-price strong{font-size:1.45rem}
+}
+
+/* très petits écrans (Snap in-app browser étroit) */
+@media (max-width:380px){
+  .hero h1{font-size:2.6rem}
+  .hero-sub{font-size:.98rem}
+  .topbar{font-size:.72rem}
+  .mobile-bar-price strong{font-size:1.3rem}
+  .mobile-bar .btn{font-size:.95rem;padding:14px 14px}
 }
 
 @media (prefers-reduced-motion:reduce){
